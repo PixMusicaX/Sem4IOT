@@ -1,0 +1,40 @@
+import time
+
+def initializeMatrix(n):
+    adj_matrix = []
+    for i in range(n):
+        row = [0] * n
+        adj_matrix.append(row)
+    return adj_matrix
+
+def addEdge(adj_matrix, u, v):
+    u_index = ord(u) - 65
+    v_index = ord(v) - 65
+    adj_matrix[u_index][v_index] = 1
+    adj_matrix[v_index][u_index] = 1
+
+def dfs(adj_matrix, start_node, visited=None):
+    if visited is None:
+        visited = set()
+    node_index = ord(start_node) - 65
+    visited.add(start_node)
+    print("Visited:", start_node)
+    for neighbor_index in range(len(adj_matrix[node_index])):
+        if adj_matrix[node_index][neighbor_index] == 1:
+            neighbor = chr(neighbor_index + 65)
+            if neighbor not in visited:
+                dfs(adj_matrix, neighbor, visited)
+
+
+adj_matrix = initializeMatrix(5)
+addEdge(adj_matrix, 'A', 'C')
+addEdge(adj_matrix, 'C', 'B')
+addEdge(adj_matrix, 'C', 'D')
+#addEdge(adj_matrix, 'D', 'E')
+addEdge(adj_matrix, 'C', 'E')
+
+print("DFS in Python")
+start = time.time()
+dfs(adj_matrix, 'C')
+end = time.time()
+print("Worst Case Time Complexity:", (end - start)*1000, "ms")
