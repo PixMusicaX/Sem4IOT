@@ -1,2 +1,28 @@
 The subdirectory contains all vhdl codes done in Lab till date.
 Note: Make sure keep note of the spaces in order to avoid EOF errors.
+
+Order of Execution:
+
+not_gate, and_gate, or_gate, nand_gate, nor_gate, xor_gate, xnor_gate
+
+sr_ff, d_ff, t_ff, jk_ff
+
+siso, sipo, piso, piso _register
+
+half_adder, full_adder, half_subtractor, full_subtractor
+
+mux2to1, demux1to4
+
+decoder, encoder
+
+comparator
+
+parity_encoder
+
+evenpargen, oddpargen, evenparchec, oddparchec
+
+upcounter, downcounter, counter, mod3counter
+
+ALU, ARITHMETIC_UNIT, LOGICAL_UNIT
+
+[CPU]
