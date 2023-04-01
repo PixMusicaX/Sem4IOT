@@ -25,4 +25,6 @@ upcounter, downcounter, counter, mod3counter
 
 ALU, ARITHMETIC_UNIT, LOGICAL_UNIT
 
+single_port_ram
+
 [CPU]
