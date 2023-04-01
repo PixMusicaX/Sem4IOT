@@ -1,0 +1,182 @@
+1)
+mkdir Test1
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~$ cd Test1
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > 1.txt
+Abc
+Def
+^Z
+[1]+  Stopped                 cat > 1.txt
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > 2.txt
+Pqr
+Xyz
+^Z
+[2]+  Stopped                 cat > 2.txt
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat 1.txt 2.txt > 12.txt
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat 12.txt
+Abc
+Def
+Pqr
+Xyz
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ grep "Pqr" 12.txt
+Pqr
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ find 2.txt
+2.txt
+
+2)
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~$ cd Test1
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > d3.sh
+man who
+^Z
+[1]+  Stopped                 cat > d3.sh
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > d4.sh
+man cut
+^Z
+[2]+  Stopped                 cat > d4.sh
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > d5.sh
+man cat
+^Z
+[3]+  Stopped                 cat > d5.sh
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > t6.txt
+Hello
+^Z
+[4]+  Stopped                 cat > t6.txt
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ cat > t7.txt
+World
+^Z
+[5]+  Stopped                 cat > t7.txt
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~/Test1$ ls
+12.txt  1.txt  2.txt  d3.sh  d4.sh  d5.sh  t6.txt  t7.txt
+
+3)
+$ who | sort | wc -l
+1
+$ who | sort | wc -l | cat > user.txt
+$ cat user.txt
+1
+
+4)
+pinaki@pinaki-ROG-Zephyrus-G14-GA401QC-GA401QC:~$ cat > calculator.sh
+function add() {
+  echo $(( $1 + $2 ))
+}
+
+function subtract() {
+  echo $(( $1 - $2 ))
+}
+
+function multiply() {
+  echo $(( $1 * $2 ))
+}
+
+function divide() {
+  echo $(( $1 / $2 ))
+}
+
+echo "Enter first number: "
+read n1
+
+echo "Enter second number: "
+read n2
+
+echo "Enter operation (+, -, *, /): "
+read op
+
+if [ "$op" == "+" ]; then
+  res=$(add $n1 $n2)
+  echo "The result is: $res"
+elif [ "$op" == "-" ]; then
+  res=$(subtract $n1 $n2)
+  echo "The result is: $res"
+elif [ "$op" == "*" ]; then
+  res=$(multiply $n1 $n2)
+  echo "The result is: $res"
+elif [ "$op" == "/" ]; then
+  res=$(divide $n1 $n2)
+  echo "The result is: $res"
+else
+  echo "Invalid operation"
+fi
+^Z
+[1]+  Stopped                 cat > calculator.sh
+
+5)
+$ cd Test1
+$ ls
+12.txt  1.txt  2.txt  d3.sh  d4.sh  d5.sh  gg  t6.txt  t7.txt
+$ ls -d */
+gg/
+$ ls -p | grep -v /
+12.txt
+1.txt
+2.txt
+d3.sh
+d4.sh
+d5.sh
+t6.txt
+t7.txt
+$ touch file1.txt
+$ touch file2.txt
+$ mv file1.txt file2.txt
+$ ls
+12.txt  1.txt  2.txt  d3.sh  d4.sh  d5.sh  file2.txt  gg  t6.txt  t7.txt
+
+6)
+mkdir SAMPLE
+$ mkdir SAMPLE/TRIAL
+$ cd SAMPLE
+$ cd
+$ cd SAMPLE/TRIAL
+$ cd ..
+$ rmdir TRIAL
+
+7)
+7)
+$ cd
+$ mkdir cs330
+$ cd cs330
+$ mkdir weather
+$ mkdir assignment
+$ mkdir web
+$ chmod 755 web
+$ cd weather
+$ touch today
+$ touch tomorrow
+$ touch deer
+$ ls -l
+total 0
+-rw-rw-r-- 1 pinaki pinaki 0 Feb  7 00:26 deer
+-rw-rw-r-- 1 pinaki pinaki 0 Feb  7 00:26 today
+-rw-rw-r-- 1 pinaki pinaki 0 Feb  7 00:26 tomorrow
+$ chmod 744 deer
+$ chmod 644 today
+$ ls -l
+total 0
+-rwxr--r-- 1 pinaki pinaki 0 Feb  7 00:26 deer
+-rw-r--r-- 1 pinaki pinaki 0 Feb  7 00:26 today
+-rw-rw-r-- 1 pinaki pinaki 0 Feb  7 00:26 tomorrow
+
+8)
+$ ls
+deer  today  tomorrow
+$ cat > convert.sh
+read -p "Enter the filename: " file
+
+if [ ! -f "$file" ]; then
+  echo "File not found: $file"
+  exit 1
+fi
+
+chmod u+rx,g+rx "$file"
+
+echo "Operation Cmplete: $file"
+^Z
+[1]+  Stopped                 cat > convert.sh
+$ bash convert.sh
+Enter the filename: tomorrow
+Operation Cmplete: tomorrow
+$ ls -l
+total 4
+-rw-rw-r-- 1 pinaki pinaki 164 Feb  7 00:36 convert.sh
+-rwxr--r-- 1 pinaki pinaki   0 Feb  7 00:26 deer
+-rw-r--r-- 1 pinaki pinaki   0 Feb  7 00:26 today
+-rwxrwxr-- 1 pinaki pinaki   0 Feb  7 00:26 tomorrow
