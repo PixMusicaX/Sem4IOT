@@ -17,3 +17,6 @@ def mcm(arr):
 arr = [8, 12, 13, 14, 19]
 ans = mcm(arr)
 print("Minimal number of scaler multiplications:", ans)
+
+
+#Note: I know the complexity is not bearable but this IS the shortest way to solve this (in terms of lines of code ofc)
