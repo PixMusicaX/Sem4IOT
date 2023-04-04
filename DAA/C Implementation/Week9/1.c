@@ -26,4 +26,5 @@ int tsp(int mask,int pos){
 
 int main(){
     printf("Minimum weight Hamiltonian Circuit: %d\n",tsp(1<<0 ,0));
+    return 0;
 }
